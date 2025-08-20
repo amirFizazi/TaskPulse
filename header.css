@@ -1,0 +1,120 @@
+
+        body {
+      font-family: "Roboto Condensed", sans-serif;
+      margin: 0;
+      height: 100vh;
+      background-color: aliceblue;
+      transition: all 0.4s ease;
+    }
+
+    .dark{
+          background-color: rgb(7, 48, 18);
+    }
+    header {
+      background: linear-gradient(135deg, rgb(25, 39, 25), rgb(50, 94, 50));
+      color: aliceblue;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; 
+      border-bottom: 2px solid black;
+      padding: 26px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 {
+      cursor: pointer;
+      color: rgb(224, 224, 224);
+      font-size: 45px;
+      margin: 0;
+      letter-spacing: 4px;
+      transition: all 0.4s ease;
+    }
+    header h1 span{
+        color: rgb(1, 204, 96);
+        transition: all 0.4s ease;
+    }
+    header h1:hover {
+      color: rgb(1, 204, 96);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      font-size: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: rgb(1, 204, 96);
+      padding: 10px;
+      transition: all 0.3s ease;
+      font-weight: 800;
+    }
+
+    nav a:hover {
+      color: white;
+      background-color: rgb(1, 204, 96);
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    header button {
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      background: rgb(1, 204, 96);
+      color: white;
+      transition: 0.3s;
+      margin-right: 100px;
+    }
+    header button i{
+      color: rgb(255, 255, 255);
+    }
+    header button:hover {
+      background: white;
+      color: rgb(1, 204, 96);
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+   .dark header {
+     background: linear-gradient(135deg, #0f0f0f, #1e1e1e);
+    }   
+    .dark h1 span{
+        color: rgb(1, 113, 53);
+    }
+    .dark nav a {
+     color: #0f9d58;
+    }
+    .dark header  nav a {
+      color: rgb(0, 159, 74);
+    }
+    .dark header nav a:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 91, 42);
+    }
+    .dark header button {
+    background: #0f9d58;
+    color: white;
+  
+    }
+    .dark header button i{
+      color: rgb(0, 0, 0);
+    }
+    .done a {
+      color: white;
+      background-color: rgb(1, 204, 96);
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .dark .done a{
+      color: rgb(255, 255, 255);
+      background-color: rgb(0, 91, 42);
+    }

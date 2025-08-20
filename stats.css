@@ -1,0 +1,74 @@
+.statsBox {
+  flex-direction: column; 
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 500px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 29, 132, 0.8));
+  padding: 20px;
+  color: #eee;
+  min-width: 120px;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+  margin-left: 500px;
+  border: 2px solid rgb(0, 45, 244);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 13, 255, 0.385);
+  backdrop-filter: blur(6px);
+  margin-bottom: 100px;
+}
+.statsBox:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 255, 100, 0.25);
+}
+
+.statsBox h2{
+  text-align: center;
+  width: 100%;
+  border-bottom: 2px solid rgb(0, 11, 212);
+  padding-bottom: 5px;
+  color:#0044ff;
+}
+.statsBox i{
+
+  margin: -10px;
+  font-size: 41px;   /* حجم الأيقونة */
+  color: #2500f4;
+}
+.statsBox p {
+  position: relative;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 15px 0;
+  padding: 12px 15px 12px 45px;  /* padding أكبر عشان يبين مميز */
+  line-height: 1.8;
+  color: #e0ffe0;
+  background: rgba(0, 0, 255, 0.08); /* خلفية خفيفة تميز العنصر */
+  border-left: 4px solid #00ff51; /* خط جانبي يوحي بالتركيز */
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 255, 51, 0.15);
+}
+
+.statsBox p::before {
+  content: "⚡";  /* أيقونة تعطي إحساس بالقوة */
+  position: absolute;
+  left: 15px;
+  font-size: 20px;
+  color: #00ff51;
+  font-weight: bold;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.statsBox p:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #0044ff, #00ff99);
+  transform: translateX(8px); /* إحساس بالحركة */
+  box-shadow: 0 6px 18px rgba(0, 255, 100, 0.35);
+}
+
+.statsBox p:hover::before {
+  transform: scale(1.3) rotate(15deg); /* حركة للأيقونة */
+  color: #fff;
+}

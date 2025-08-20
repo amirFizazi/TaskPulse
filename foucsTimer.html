@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="header.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+  .focusTimer {
+  text-align: center;
+  background: linear-gradient(135deg, #000000, #1b3d0d, #2e4b19); /* تدرج أخضر داكن */
+  padding: 25px;
+  border-radius: 20px;
+  color: #fff;
+  width: 250px;
+  margin: 50px auto;
+  box-shadow: 0 8px 30px rgba(0,255,100,0.35), 0 0 15px rgba(0,255,100,0.2) inset;
+  border: 2px solid #00ff51;
+  transition: all 0.4s ease;
+}
+
+.focusTimer:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(0,255,100,0.5), 0 0 25px rgba(0,255,100,0.25) inset;
+}
+
+.focusTimer h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: #00ff51;
+  text-shadow: 0 0 10px #00ff51, 0 0 20px #00ff51;
+}
+
+#timerDisplay {
+  font-size: 52px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #00ff51;
+  text-shadow: 0 0 8px #00ff51, 0 0 15px #00ff51;
+}
+
+.controls button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 12px;
+  background-color: #00ff51;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,255,100,0.3);
+}
+
+.controls button:hover {
+  background-color: #00c73c;
+  transform: scale(1.15) rotate(-1deg);
+  box-shadow: 0 6px 15px rgba(0,255,100,0.5);
+}
+
+.timerDisplay {
+  font-size: 64px;               /* حجم أكبر للأرقام */
+  font-weight: bold;
+  color: #00ff51;                /* اللون الأساسي */
+  text-align: center;
+  margin: 20px 0;
+  text-shadow: 
+    0 0 5px #00ff51,
+    0 0 10px #00ff51,
+    0 0 20px #00ff51,
+    0 0 40px #00ff51,
+    0 0 80px #00ff51;           /* توهج Neon قوي */
+  transition: all 0.3s ease;
+  letter-spacing: 2px;           /* مسافة بين الأرقام */
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* تأثير نبض خفيف */
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px #00ff51,
+      0 0 10px #00ff51,
+      0 0 20px #00ff51,
+      0 0 40px #00ff51,
+      0 0 80px #00ff51;
+  }
+  50% {
+    text-shadow: 
+      0 0 10px #00ff51,
+      0 0 20px #00ff51,
+      0 0 30px #00ff51,
+      0 0 60px #00ff51,
+      0 0 120px #00ff51;
+  }
+}
+
+.timerDisplay {
+  animation: neonPulse 1.5s infinite alternate;
+}
+
+
+</style>
+</head>
+<body>
+      <header>
+    <h1>Ingenieur <span>A</span>mir</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">المهام اليومية</a></li>
+        <li  class="done"><a href="foucsTimer.html">  مؤقت التركيز</a></li>
+        <li><a href="yearsTasks.html">الاهداف السنوية</a></li>
+        <li><a href="stats.html">الاحصائيات</a></li>
+      </ul>
+    </nav>
+    <button id="web-mode" ><i id="icon" class="material-icons">light_mode</i></button>
+  </header>
+  <main>
+    <section class="focusTimer" data-time="25">
+  <h2>🕒 Focus Timer 1</h2>
+  <div class="timerDisplay">25:00</div>
+  <div class="controls">
+    <button class="startBtn">Start</button>
+    <button class="pauseBtn">Pause</button>
+    <button class="resetBtn">Reset</button>
+  </div>
+</section>
+
+</section>
+</section>
+  </main>
+  <script>
+// نجيب كل التايمرز في الصفحة
+const timers = document.querySelectorAll(".focusTimer");
+
+timers.forEach(timer => {
+  const display = timer.querySelector(".timerDisplay");
+  const startBtn = timer.querySelector(".startBtn");
+  const pauseBtn = timer.querySelector(".pauseBtn");
+  const resetBtn = timer.querySelector(".resetBtn");
+
+  let focusTime = parseInt(timer.dataset.time) * 60; // بالدقائق
+  let remainingTime = focusTime;
+  let interval = null;
+
+  function updateDisplay() {
+    let minutes = Math.floor(remainingTime / 60);
+    let seconds = remainingTime % 60;
+    display.textContent = `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+  }
+
+  function startTimer() {
+    if (interval) return;
+    interval = setInterval(() => {
+      if (remainingTime > 0) {
+        remainingTime--;
+        updateDisplay();
+      } else {
+        clearInterval(interval);
+        interval = null;
+        alert(`${timer.querySelector('h2').textContent} ⏰ انتهى الوقت!`);
+        remainingTime = focusTime;
+        updateDisplay();
+      }
+    }, 1000);
+  }
+
+  function pauseTimer() {
+    clearInterval(interval);
+    interval = null;
+  }
+
+  function resetTimer() {
+    remainingTime = focusTime;
+    updateDisplay();
+    clearInterval(interval);
+    interval = null;
+  }
+
+  startBtn.addEventListener("click", startTimer);
+  pauseBtn.addEventListener("click", pauseTimer);
+  resetBtn.addEventListener("click", resetTimer);
+
+  updateDisplay();
+});
+
+  </script>
+  <script src="scripte3.js"></script>
+</body>
+</html>

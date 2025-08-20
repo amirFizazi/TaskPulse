@@ -1,0 +1,250 @@
+.tasksSection{
+   margin-left: 30px;
+    display:grid;
+    grid-template-columns: 2fr 1fr; /* مهمات يسار + نصائح يمين */
+}
+
+.material-icons {   /* اللون (أخضر) */
+    margin: 10px;      /* مسافة حولها */
+    transition: 0.3s;  /* انتقال ناعم */
+    cursor: pointer;
+  }
+
+
+.taskBox{
+    display: flex;
+    text-align: center;
+    width: 70%;
+    height: 300px;
+    max-width: 600px;
+    margin-top: 40px;
+    background: linear-gradient(135deg , rgb(50, 43, 0) , rgb(103, 88, 0));
+    padding: 20px;
+    color: aliceblue;
+    border: 2px solid #ddff00;
+    border-radius: 10px;
+    gap: 10px;
+    border-top-right-radius:  50px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(6px); /* يعطي لمعة شفافة */
+    transition: all 0.3s ease;
+    
+}
+.taskBox img{
+    width: 60%;
+    margin: -20px;
+    border-radius:  10px;
+    }
+.ff {
+    margin-bottom: -20px;
+        overflow-y: auto;   /* لو المحتوى زاد بالطول يطلع سكرول عمودي */
+    overflow-x: hidden; /* نخفي السكرول الأفقي */
+    
+}
+.taskBox h1 {
+  text-align: center;
+  width: 100%;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 5px;
+  font-size: 1.3rem;
+}
+
+/* إدخال المهام */
+.tasksSection input {
+  background-color: #ffffff;
+  border: 2px solid gold;
+  border-radius: 10px;
+  padding: 6px;
+  text-align: center;
+  transition: all 0.3s ease;
+  color: #4b4949;
+}
+
+body.dark .tasksSection input {
+  background-color: #70703e;
+  border: 2px solid gold;
+  color: #ffffff;
+}
+
+.tasksSection input::placeholder {
+  color: rgb(29, 29, 29);
+}
+
+/* عند التركيز */
+.tasksSection input:focus {
+  transform: scale(1.05);
+  margin-right: 10px;
+  border-color: #87a900;
+}
+
+/* الأزرار */
+.tasksSection button {
+  padding: 6px 12px;
+  margin-top: 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: none;
+  background-color: goldenrod;
+  color: #b5b5b5;
+  cursor: pointer;
+  font-weight: bold;
+}
+.tasksSection button:hover {
+  background-color: #aed500;
+  box-shadow: 0 4px 10px rgba(18, 22, 18, 0.4);
+  transform: scale(1.05);
+}
+
+/* لائحة المهام */
+#taskList {
+  background-color: #70703e;
+  border-radius: 10px;
+  margin-top: 15px;
+  list-style: none;
+  padding: 10px;
+  transition: all 0.4s ease;
+}
+
+body.dark #taskList {
+  background-color: #4a4f00;
+}
+
+#taskList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+}
+
+/* checkbox */
+#taskList li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* زر الحذف */
+#taskList li button {
+  background: #ff4d4d;
+  border: none;
+  padding: 6px 10px;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#taskList li button:hover {
+  background: #ff1a1a;
+  transform: scale(1.1);
+}* 
+#taskList li.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.ff {
+  scrollbar-width: none;        
+}
+
+.ff::-webkit-scrollbar {
+  display: none;                
+}
+.taskBox:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 255, 100, 0.25);
+}
+
+
+
+
+
+.tipsBox {
+  display: flex;
+  flex-direction: column; /* النصائح تنزل تحت بعض */
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+  max-width: 500px;
+  height: auto; /* نخليها تتوسع مع المحتوى بدل طول ثابت */
+  margin-top: 40px;
+  margin-right: 500px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(100, 107, 0, 0.8));
+  padding: 25px;
+  color: #d6ffd6;
+  border: 2px solid #ddff00;
+  border-radius: 20px;
+  border-bottom-left-radius: 50px;
+  box-shadow: 0 8px 25px rgba(0, 255, 100, 0.15);
+  backdrop-filter: blur(6px); /* يعطي لمعة شفافة */
+  transition: all 0.3s ease;
+}
+
+.tipsBox:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 255, 100, 0.25);
+}
+
+.tipsBox h2 {
+  color: #eaff00;
+  font-size: 26px;
+  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #00ff51;
+  padding-bottom: 5px;
+}
+
+.tipsBox ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.tipsBox li {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 12px 0;
+  padding: 8px 15px;
+  border-radius: 8px;
+  line-height: 1.6;
+  background: rgba(0, 255, 81, 0.05);
+  color: #faffe0;
+  transition: background 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.tipsBox li:hover {
+  background: rgba(0, 255, 81, 0.15);
+  color: #e1ff00;
+}
+
+.tipsBox i {
+  margin-right: 10px;
+  font-size: 28px;   /* حجم الأيقونة */
+  color: #befc07;
+  transition: transform 0.3s ease;
+}
+
+/* رمز (✔️) قبل النصيحة */
+.tipsBox li::before {
+  content: "🤴";
+  position: absolute;
+  left: 0;
+  color: #c3ff00;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+
+.tipsBox i{
+
+  margin: -10px;
+  font-size: 41px;   /* حجم الأيقونة */
+  color: #e8f400;
+}
+
