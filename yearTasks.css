@@ -86,6 +86,7 @@ body.dark .tasksSection input {
   margin-top: 15px;
   border-radius: 10px;
   transition: all 0.3s ease;
+   margin-right: 15px;
   border: none;
   background-color: goldenrod;
   color: #b5b5b5;
@@ -291,3 +292,4 @@ body.dark #taskList {
     font-size: 14px;
   }
 }
+
