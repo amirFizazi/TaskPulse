@@ -30,11 +30,14 @@
     transition: all 0.3s ease;
     
 }
-.taskBox img{
-    width: 60%;
-    margin: -20px;
-    border-radius:  10px;
-    }
+.taskBox img {
+  width: 100%;
+  height: auto; /* يخلي الطول يتعدل تلقائي */
+  object-fit: cover; /* يخلي الصورة ما تتشوه */
+  border-radius: 10px; /* اختيارية: تخلي الأطراف ناعمة */
+  margin: -20px;
+}
+
 .ff {
     margin-bottom: -20px;
         overflow-y: auto;   /* لو المحتوى زاد بالطول يطلع سكرول عمودي */
@@ -248,3 +251,43 @@ body.dark #taskList {
   color: #e8f400;
 }
 
+/* 📱📲 الريسبونسف */
+@media (max-width: 992px) {
+  .tasksSection {
+    grid-template-columns: 1fr; /* خليها عمود واحد */
+    margin-left: 0;
+    gap: 20px;
+  }
+  .taskBox, .tipsBox {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .taskBox {
+    flex-direction: column; /* خلي الصورة فوق والنص تحت */
+    height: auto;
+  }
+  .taskBox img {
+    width: 100%;
+    margin: 0 auto 15px;
+  }
+  .tipsBox {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .taskBox h1 {
+    font-size: 1rem;
+  }
+  .tipsBox h2 {
+    font-size: 20px;
+  }
+  .tipsBox li {
+    font-size: 14px;
+  }
+}
